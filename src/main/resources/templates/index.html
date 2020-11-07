@@ -1,10 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>HackJunction 2020</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <title>MOLD</title>
 </head>
 <body>
-<p>KISS YOU</p>
+<div class="wrapper">
+    <div class="sky">
+        <div class="btn_start_block" >
+            <button class="btn_start" id="popup-trigger">START</button>
+        </div>
+        <div id="user-window">
+            <div class="card-container">
+                <div class="my-profile">
+                    <span class="thumb"><img src="#" alt="" /></span>
+                </div>
+                <div class="info">
+                    <p class="name">Little Name</p>
+                    <p class="role">Student</p>
+                    <p class="location">Aalto University, Finland</p>
+                </div>
+                <div class="energy">
+                    <em>Energy</em>
+                    <div><span class="html"></span></div>
+                </div>
+            </div>
+            <button class="btn_connect first"><a href="#">Create account</a></button>
+            <button class="btn_connect"><a href="#">Add University account</a></button>
+            <button class="btn_connect"><a href="#">Add Google Fit</a></button>
+            <button class="btn_connect" id="history_trigger"><a href="#">History</a></button>
+            <button class="btn_connect" id="rules_trigger"><a href="#">Rules</a></button>
+<!--            <embed src="https://s148vla.storage.yandex.net/get-mp3/988ff4f4013516b17330c9c53fc39c44/0005b388f40876e7/rmusic/U2FsdGVkX1-ci17Iuw2MFDR-BlBtWpEh1ev0h31JOwX_yZadEV-Uiq_qCGnxDQabinAszAIsPddb5dNT9jfnMzZFhJjxDjgthkyPciS6dKk/57626e323113c6b371de65d2e158ceb171fd7f44b6ae8427252923b68ddcb55a?track-id=28958148&play=true" autostart="true" hidden="true" loop="true" width="300" height="65"> </embed>-->
+
+        </div>
+        <div class="popup_window x-close" id="history">
+            <div class="popup-close_history">&times;
+                <div class="history_text">
+                    <p>Once upon a Time the world was filled with colors and inhabited by many amazing creatures.
+                        But then people stopped appreciating what they had, especially the Time. </p>
+                    <br>
+                    <p>Time does not tolerate mistreatment of itself,
+                        so it took animals, and plants, and the color that filled everything around.
+                        It left only gray nowhere.</p>
+                    <br>
+                    <p>But this does not mean that all is lost. Before disappearing,
+                        Time said that everything can be returned. But for this you have
+                        must make overcome your old habits.</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="popup_window x-close" id="rules">
+            <div class="popup-close_rules">&times;</div>
+        </div>
+    </div>
+    <div class="land"></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
 </body>
 </html>
