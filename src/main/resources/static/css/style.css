@@ -36,6 +36,52 @@
   }
 }
 
+@-webkit-keyframes rising-sun {
+  0% {
+    top: 80%;
+    -webkit-box-shadow: 0 0 20px 100px #E0E0E0;
+            box-shadow: 0 0 20px 100px #E0E0E0;
+  }
+  50% {
+    top: 10%;
+    -webkit-box-shadow: 0 0 150px 20px #6D7578;
+            box-shadow: 0 0 150px 20px #6D7578;
+  }
+  75% {
+    top: 10%;
+    -webkit-box-shadow: 0 0 150px 20px #6D7578;
+            box-shadow: 0 0 150px 20px #6D7578;
+  }
+  100% {
+    top: 80%;
+    -webkit-box-shadow: 0 0 150px 20px #6D7578;
+            box-shadow: 0 0 150px 20px #6D7578;
+  }
+}
+
+@keyframes rising-sun {
+  0% {
+    top: 80%;
+    -webkit-box-shadow: 0 0 20px 100px #E0E0E0;
+            box-shadow: 0 0 20px 100px #E0E0E0;
+  }
+  50% {
+    top: 10%;
+    -webkit-box-shadow: 0 0 150px 20px #6D7578;
+            box-shadow: 0 0 150px 20px #6D7578;
+  }
+  75% {
+    top: 10%;
+    -webkit-box-shadow: 0 0 150px 20px #6D7578;
+            box-shadow: 0 0 150px 20px #6D7578;
+  }
+  100% {
+    top: 80%;
+    -webkit-box-shadow: 0 0 150px 20px #6D7578;
+            box-shadow: 0 0 150px 20px #6D7578;
+  }
+}
+
 body {
   background-color: #ACAFB1;
 }
@@ -59,7 +105,19 @@ body {
 }
 
 .land {
+  z-index: 2;
+  position: absolute;
   background-color: #6D7578;
+}
+
+.building_block {
+  z-index: 3;
+  display: none;
+  top: 40%;
+  position: fixed;
+  max-width: 80%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .btn_start_block {
@@ -71,6 +129,8 @@ body {
 }
 
 .btn_start_block > .btn_start {
+  z-index: 3;
+  position: absolute;
   border-radius: 50%;
   background-color: #E0E0E0;
   border: 1px solid transparent;
@@ -96,17 +156,18 @@ body {
 }
 
 #user-window {
+  z-index: 3;
   position: fixed;
-  border-radius: 5%;
+  border-radius: 2%;
   display: none;
   margin-right: 2vw;
   left: 50;
   right: 0;
-  top: 23%;
+  top: 35%;
   -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  width: 15vw;
-  height: 41vh;
+          transform: translateY(-50%);
+  max-width: 40%;
+  max-height: 80%;
   background: #ddd;
   border: 1px solid #aaa;
   -webkit-box-shadow: 0 3px 15px 5px rgba(50, 50, 50, 0.15);
@@ -143,13 +204,13 @@ body {
 .my-profile {
   display: block;
   width: 100%;
-  height: 10vh;
+  height: 30%;
   text-align: left;
   -webkit-transition: .1s ease-in-out;
   transition: .1s ease-in-out;
   cursor: pointer;
   margin: 0 auto;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .my-profile > .thumb {
@@ -165,14 +226,31 @@ body {
   z-index: 1;
 }
 
-.my-profile:hover {
-  width: 270px;
-  -webkit-transition: width .1s ease-in-out;
-  transition: width .1s ease-in-out;
+.thumb:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 90px;
+  height: 90px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  opacity: 0;
+  -webkit-animation: wave 3s infinite ease-out;
+          animation: wave 3s infinite ease-out;
 }
 
 .info {
   color: #40403E;
+}
+
+.info > .level {
+  padding: 5px 0;
+  text-align: center;
+  font-weight: normal;
+  font-size: 20pt;
 }
 
 .info > .name {
@@ -215,6 +293,7 @@ body {
 }
 
 .popup_window {
+  z-index: 3;
   position: fixed;
   display: none;
   margin: 0 auto;
@@ -239,15 +318,45 @@ body {
   cursor: pointer;
 }
 
-.history_text {
+.history_text, .rules_text {
   display: block;
   font-size: 22pt;
-  margin: 10%;
+  margin: 20px;
 }
 
 #user-window > embed {
   margin-top: 20px;
   display: block;
   width: 100%;
+}
+
+.moon {
+  display: none;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background: #40403E;
+  border-radius: 50px;
+  -webkit-box-shadow: 0 0 20px #6D7578;
+          box-shadow: 0 0 20px #6D7578;
+  left: 50%;
+  top: 80%;
+  margin: 0 -50px;
+  z-index: 1;
+  -webkit-animation: rising-sun 15s ease infinite;
+  -moz-animation: rising-sun 15s ease infinite;
+  -ms-animation: rising-sun 15s ease infinite;
+}
+
+@media screen and (max-width: 1400px) {
+  #building > img {
+    max-width: 50%;
+  }
+  #user-window {
+    min-height: 40%;
+  }
+  #user-window > div.card-container > div.info p {
+    font-size: 10pt;
+  }
 }
 /*# sourceMappingURL=style.css.map */

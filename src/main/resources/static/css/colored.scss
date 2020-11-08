@@ -1,0 +1,328 @@
+$color_darkgrey: #40403E;
+$color_lightblue:#8192B3;
+$color_dirtywhite: #E0E0E0;
+$color_sand: #D3BD9F;
+$color_yellow: #E0E0A9;
+$color_lightpink: #D6C2DC;
+$color_lightgreen: #CADAB0;
+$color_asphalt: #ACAFB1;
+$size-half: 50%;
+
+* {
+    margin: 0 auto;
+}
+
+@keyframes wave {
+	0% {
+		transform: scale(0);
+		opacity:1;
+		transform-origin: center;
+	}
+	100% {
+		transform: scale(1.5);
+		opacity:0;
+		transform-origin: center;
+	}
+}
+
+@keyframes rising-sun {
+    0%   { 
+        top: 80%; 
+        box-shadow: 0 0 20px 100px $color_sand;
+    }
+    50% {
+        top: 10%;
+        box-shadow: 0 0 150px 20px $color_yellow;
+    }
+    75% {
+        top: 10%;
+        box-shadow: 0 0 150px 20px $color_dirtywhite;
+        background-color: $color_dirtywhite;
+    }
+    85% {
+        top: 10%;
+        box-shadow: 0 0 150px 20px $color_dirtywhite;
+        background-color: $color_dirtywhite;
+    }
+    100% {
+        top: 80%;
+        box-shadow: 0 0 150px 20px $color_sand;
+        background-color: $color_dirtywhite;
+    }
+}
+
+@keyframes  color_sky {
+    0% {
+        background-color: $color_lightblue / 2;
+    }
+
+    50% {
+        background-color: $color_lightblue;
+    }
+    75% {
+        background-color: $color_lightblue;
+    }
+    100% {
+        background-color: $color_lightblue / 2;
+    }
+
+}
+
+body {
+    background-color: $color_lightpink;
+}
+
+.wrapper {
+    display: block;
+    margin: 0 auto;
+    max-width: 190vw;
+    height: 100%;
+}
+
+.sky, .land {
+    display: block;
+    height: 50vh;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.sky {
+    background-color: $color_lightblue;
+    -webkit-animation: color_sky 15s ease infinite;
+    -moz-animation:    color_sky 15s ease infinite;
+    -ms-animation:     color_sky 15s ease infinite;
+}
+
+.land {
+    z-index: 2;
+    position: absolute;
+    background-color: $color_lightgreen;
+}
+
+.building_block, .dog_block, .tree_block {
+    z-index: 3;
+    display: none;
+    top: 40%;
+    position: fixed;
+    max-width: 100%;
+    transform: translateY(-50%);
+}
+
+.dog_block{
+    top: 75%;
+    left: 25%;
+    img {
+        width: 50%;
+    }
+}
+
+.tree_block {
+    position: absolute;
+    z-index: 1;
+    right: 5%;
+}
+
+.btn_start_block{
+    margin: 0 auto;
+    display: block;
+    position: absolute;
+    top: $size-half;
+    left: $size-half;
+    > .btn_start {
+        z-index: 3;
+        position: absolute;
+        border-radius: 50%;
+        background-color: $color_lightblue;
+        border: 1px solid transparent;
+        display: block;
+        width: 10vw;
+        height: 10vw;
+        cursor: pointer;
+        transform: translate(-50%, -50%);
+        font-size: 15px;
+        text-align: center;
+        -webkit-clip-path: polygon(50% 100%, 100% 35%, 75% 0, 25% 0, 0 35%);
+        clip-path: polygon(50% 100%, 100% 35%, 75% 0, 25% 0, 0 35%);
+        transition-duration: 0.5s;
+        transition: all 0.5s ease;
+    }
+}
+
+.btn_start:hover {
+    background-color: $color_lightpink;
+    color: $color_darkgrey;
+}
+
+#user-window {
+    z-index: 3;
+    position: fixed;
+    border-radius: 2%;
+    display: none;
+    margin-right: 2vw;
+    left: 50;
+    right: 0;
+    top: 30%;
+    transform: translateY(-50%);
+    width: 15vw;
+    height: 50vh;
+    background: $color_sand;
+    border: 1px solid #aaa;
+    box-shadow: 0 3px 15px 5px rgba(50, 50, 50, 0.15);
+  }
+
+.card-container {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.btn_connect {
+    border-radius: 5%;
+    background-color: $color_sand;
+    border: 1px solid transparent;
+    display: block;
+    cursor: pointer;
+    margin-top: 5%;
+    margin-left: 5%;
+    box-shadow:2px 1px 7px rgba(0,0,0,0.2);
+    .first {
+        margin-top: 20%;
+    }
+    a {
+        text-decoration: none;
+        color: $color_darkgrey;
+    }
+}
+.my-profile {
+    display: block;
+    width: 100%;
+    height: 10vh;
+    text-align: left;
+    transition: .1s ease-in-out;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 10%;
+    > .thumb {
+        display: block;
+        margin: 0 auto;
+        width:90px; 
+        height:90px; 
+        padding:4px; 
+        background:transparent; 
+        border-radius:50%; 
+        box-shadow:0 2px 8px rgba(0,0,0,0.3); 
+        z-index:1;
+    }
+}
+
+.thumb:before {
+    content:""; 
+    position:absolute; 
+    display:block; 
+    width:90px; 
+    height:90px; 
+    background:rgba(0, 0, 0, .6); 
+    border-radius:50%; 
+    z-index:1; 
+    backface-visibility:hidden; 
+    opacity:0; 
+    animation:wave 3s infinite ease-out;
+}
+
+.my-profile:hover {
+    width:270px; 
+    transition:width .1s ease-in-out;
+}
+.info {
+    color: $color_darkgrey;
+    > .level {
+        padding:5px 0; 
+        text-align:center; 
+        font-weight:normal;
+        font-size: 20pt;
+    }
+    > .name {
+        padding:5px 0; 
+        text-align:center; 
+        font-weight:normal;
+    }
+    > .role, .location {
+        padding:2px 0; 
+        text-align:center;
+    }
+    > .my-profile:hover + .info {
+        right:15px;
+    }
+
+}
+.energy {
+    margin-top: 2vh;
+    div {
+        margin-top: 1vh;
+        overflow:hidden; 
+        width:90%; 
+        height:1vh; 
+        border-radius:5%; 
+        box-shadow:2px 1px 7px rgba(0,0,0,0.2);
+        span {
+            display:block; 
+            height:100%; 
+        }
+        span.html {
+            width:90%; 
+            background:#F44336; 
+        }
+    }
+}
+
+.popup_window {
+    z-index: 3;
+    position: fixed;
+    display: none;
+    margin: 0 auto;
+    left: 40%;
+    right: 25%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    height: 80%;
+    background: $color_lightgreen;
+    border: 1px solid $color_lightgreen;
+    box-shadow: 0  3px 15px 5px rgba(50,50,50,0.15);
+}
+    
+.x-close {
+    font-size: 50px;
+    line-height: 1;
+    float: right;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.history_text, .rules_text {
+    display: block;
+    font-size: 22pt;
+    margin: 10%;
+}
+
+#user-window > embed {
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+}
+
+.moon {
+    display: none;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background: $color_yellow;
+    border-radius: 50px;
+    box-shadow: 0 0 20px $color_lightgreen;
+    left: 50%;
+    top: 80%;
+    margin: 0 -50px;
+    z-index: 1;
+    -webkit-animation: rising-sun 15s ease infinite;
+    -moz-animation:    rising-sun 15s ease infinite;
+    -ms-animation:     rising-sun 15s ease infinite;
+}

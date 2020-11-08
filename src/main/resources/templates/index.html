@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+<!--    <div th:insert="icon :: ico"></div>-->
     <title>MOLD</title>
 </head>
 <body>
@@ -12,12 +13,16 @@
         <div class="btn_start_block" >
             <button class="btn_start" id="popup-trigger">START</button>
         </div>
+        <div class="building_block" id="building">
+            <img src="./pics/building.png" alt="">
+        </div>
         <div id="user-window">
             <div class="card-container">
                 <div class="my-profile">
                     <span class="thumb"><img src="#" alt="" /></span>
                 </div>
                 <div class="info">
+                    <p class="level">1st Level</p>
                     <p class="name">Little Name</p>
                     <p class="role">Student</p>
                     <p class="location">Aalto University, Finland</p>
@@ -32,7 +37,7 @@
             <button class="btn_connect"><a href="#">Add Google Fit</a></button>
             <button class="btn_connect" id="history_trigger"><a href="#">History</a></button>
             <button class="btn_connect" id="rules_trigger"><a href="#">Rules</a></button>
-<!--            <embed src="https://s148vla.storage.yandex.net/get-mp3/988ff4f4013516b17330c9c53fc39c44/0005b388f40876e7/rmusic/U2FsdGVkX1-ci17Iuw2MFDR-BlBtWpEh1ev0h31JOwX_yZadEV-Uiq_qCGnxDQabinAszAIsPddb5dNT9jfnMzZFhJjxDjgthkyPciS6dKk/57626e323113c6b371de65d2e158ceb171fd7f44b6ae8427252923b68ddcb55a?track-id=28958148&play=true" autostart="true" hidden="true" loop="true" width="300" height="65"> </embed>-->
+            <embed src="./music/change.mp3" autostart="true" hidden="true" loop="true"> </embed>
 
         </div>
         <div class="popup_window x-close" id="history">
@@ -53,12 +58,24 @@
 
         </div>
         <div class="popup_window x-close" id="rules">
-            <div class="popup-close_rules">&times;</div>
+            <div class="popup-close_rules">&times;
+                <div class="rules_text">
+                    <p>Rules are simple:</p>
+                    <p>
+                        1. You login with your University account and Google Fit account <br>
+                        2. Deal with daily quests and gain energy <br>
+                        3. Spend for coloring your world <br>
+                        4. get higher level, open new locations, deal with your peers and mates <br>
+                    </p>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="moon" id="moon_visible">
+
     </div>
     <div class="land"></div>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<script src="/js/main.js"></script>
+<div th:insert="footer :: js"></div>
 </body>
 </html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/colored.css}">
+<!--    <div th:insert="icon :: ico"></div>-->
+    <title>MOLD</title>
+</head>
+<body>
+    <div class="wrapper">
+            <div class="sky">
+            <div class="btn_start_block" >
+            <button class="btn_start" id="popup-trigger">START</button>
+            </div>
+            <div class="building_block" id="building">
+                <img src="./pics/house1.png" alt="">
+            </div>
+            <div class="tree_block">
+                <img src="./pics/tree.png" alt="">
+                <img src="./pics/tree.png" alt="">
+                <img src="./pics/tree.png" alt="">
+                <img src="./pics/tree.png" alt="">
+            </div>
+            <div id="user-window">
+              <div class="card-container">
+                <div class="my-profile">
+                    <span class="thumb"><img src="#" alt="" /></span>
+                </div>
+                <div class="info">
+                    <p class="level">Level 10</p>
+                    <p class="name">Little Name</p>
+                    <p class="role">Student</p>
+                    <p class="location">Aalto University, Finland</p>
+                </div>
+                <div class="energy">
+                    <em>Energy</em>
+                    <div><span class="html"></span></div>
+                </div>
+              </div>
+              <button class="btn_connect first"><a href="#">Create account</a></button>
+              <button class="btn_connect"><a href="#">Add University account</a></button>
+              <button class="btn_connect"><a href="#">Add Google Fit</a></button>
+              <button class="btn_connect" id="history_trigger"><a href="#">History</a></button>
+              <button class="btn_connect" id="rules_trigger"><a href="#">Rules</a></button>
+                <embed src="./music/Alexis Harte - No Wrong Way Home_(Audio-VK4.ru).mp3" autostart="true" hidden="true" loop="true"> </embed>
+              
+            </div>
+            <div class="popup_window x-close" id="history">
+                <div class="popup-close_history">&times;
+                    <div class="history_text">
+                        <p>Once upon a Time the world was filled with colors and inhabited by many amazing creatures. 
+                            But then people stopped appreciating what they had, especially the Time. </p>
+                            <br>
+                            <p>Time does not tolerate mistreatment of itself,
+                             so it took animals, and plants, and the color that filled everything around. 
+                             It left only gray nowhere.</p>
+                            <br>
+                            <p>But this does not mean that all is lost. Before disappearing, 
+                            Time said that everything can be returned. But for this you have 
+                            must make overcome your old habits.</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="popup_window x-close" id="rules">
+                <div class="popup-close_rules">&times;
+                    <div class="rules_text">
+                        <p>Rules are simple:</p>
+                        <p>
+                            1. You login with your University account and Google Fit account <br>
+                            2. Deal with daily quests and gain energy <br>
+                            3. Spend for coloring your world <br>
+                            4. get higher level, open new locations, deal with your peers and mates <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="moon" id="moon_visible">
+
+        </div>
+        <div class="land"></div>
+    </div>
+<div th:insert="footer :: js"></div>
+</body>
+</html>

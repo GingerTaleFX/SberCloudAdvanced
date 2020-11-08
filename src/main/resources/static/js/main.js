@@ -1,20 +1,26 @@
 $(document).ready(function(){
-
+ 
     var fadeInTime = 600;
-    var fadeOutTime = 600;
+    var fadeOutTime = 600; 
     var popupWindow = $('#user-window');
     var HistoryWindow = $('#history');
     var RulesWindow = $('#rules');
-
+    var BuildingBlock = $('#building');
+    var MoonIcon = $('#moon_visible');
+  
     function fadein(el) {
       $(el).fadeIn(fadeInTime);
     }
     function fadeout(el) {
       $(el).fadeOut(fadeOutTime);
     }
-
+   
     $('#popup-trigger').on('click touchend', function(){
       fadein(popupWindow);
+      fadein(BuildingBlock);
+      fadein(MoonIcon);
+      fadein('.tree_block');
+      fadeout('.btn_start_block');
       $('.btn_start_block').remove();
     })
 
@@ -26,10 +32,6 @@ $(document).ready(function(){
         fadein(RulesWindow);
     })
 
-
-    /* close #popup-window on click of .popup-close */
-    /*----------------------------------------------*/
-
     $('.popup-close_history').on('click touchend', function() {
       fadeout(HistoryWindow);
     });
@@ -37,23 +39,12 @@ $(document).ready(function(){
     $('.popup-close_rules').on('click touchend', function() {
         fadeout(RulesWindow);
       });
-
-    // /* close #popup-window on click a anywhere outside the window*/
-    // /*------------------------------------------------------------*/
-    // $(document).on('mouseup', function(e) {
-    //     if (!popupWindow.is(e.target) // target not container...
-    //         && popupWindow.has(e.target).length === 0) // ... nor descendant of container
-    //     {
-    //     fadeout(popupWindow);
-    //     }
-    // });
-
-    // /* close #popup-window on pressing ESC*/
-    // /*------------------------------------------------------------*/
-    // $(document).on('keyup', function(e) {
-    //     if (e.keyCode == 27) { // (escape key)
-    //     fadeout(popupWindow);
-    //     }
-    // });
-
-  });
+   
+    $(document).on('keyup', function(e) {
+        if (e.keyCode == 27) { // (escape key)
+        fadeout(HistoryWindow);
+        fadeout(RulesWindow);
+        }
+    });
+  
+  })
