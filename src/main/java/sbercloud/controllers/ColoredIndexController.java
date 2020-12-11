@@ -1,4 +1,4 @@
-package com.example.hj.controllers;
+package sbercloud.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

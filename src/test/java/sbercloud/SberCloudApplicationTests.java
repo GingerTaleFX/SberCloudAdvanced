@@ -1,10 +1,10 @@
-package com.example.hj;
+package sbercloud;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HjApplicationTests {
+class SberCloudApplicationTests {
 
 	@Test
 	void contextLoads() {

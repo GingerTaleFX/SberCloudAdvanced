@@ -1,4 +1,4 @@
-package com.example.hj.models;
+package sbercloud.models;
 
 public class Task {
     String title;

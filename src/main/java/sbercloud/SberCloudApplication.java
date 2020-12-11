@@ -1,13 +1,13 @@
-package com.example.hj;
+package sbercloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HjApplication {
+public class SberCloudApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HjApplication.class, args);
+		SpringApplication.run(SberCloudApplication.class, args);
 	}
 
 }
