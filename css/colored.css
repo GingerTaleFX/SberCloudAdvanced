@@ -720,8 +720,7 @@ body {
 .sky {
   background-color: #8192B3;
   -webkit-animation: color_sky 15s ease infinite;
-  -moz-animation: color_sky 15s ease infinite;
-  -ms-animation: color_sky 15s ease infinite;
+          animation: color_sky 15s ease infinite;
 }
 
 .land {
@@ -981,6 +980,8 @@ audio {
   float: right;
   margin-right: 12px;
   cursor: pointer;
+  padding-left: 15px;
+  cursor: pointer;
 }
 
 .history_text, .rules_text {
@@ -1012,6 +1013,10 @@ audio {
 @media screen and (max-width: 1400px) {
   .building_block img {
     max-width: 50%;
+  }
+  .tree_block {
+    max-width: 15%;
+    top: 17%;
   }
   #user-window {
     min-height: 40%;

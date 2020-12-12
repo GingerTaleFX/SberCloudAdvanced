@@ -49,9 +49,7 @@ body {
 
 .sky {
     background-color: $color_lightblue;
-    -webkit-animation: color_sky 15s ease infinite;
-    -moz-animation:    color_sky 15s ease infinite;
-    -ms-animation:     color_sky 15s ease infinite;
+    animation: color_sky 15s ease infinite;
 }
 
 .land {
@@ -288,6 +286,8 @@ audio {
     float: right;
     margin-right: 12px;
     cursor: pointer;
+    padding-left: 15px;
+    cursor: pointer;
 }
 
 .history_text, .rules_text {
@@ -322,10 +322,10 @@ audio {
     .building_block img {
         max-width: 50%;
     }
-    // .tree_block img{
-    //     max-width: 15%;
-    //     top: 17%;
-    // }
+    .tree_block {
+        max-width: 15%;
+        top: 17%;
+    }
     #user-window {
         min-height: 40%;
     }
