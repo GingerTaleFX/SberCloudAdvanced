@@ -41,10 +41,15 @@ public class KafkaConsumer {
             if (temp.equals("steps"))
                 steps = Integer.parseInt(param.split("=")[1]);
             if (temp.equals("cardio"))
-                steps = Integer.parseInt(param.split("=")[1]);
+                cardio = Integer.parseInt(param.split("=")[1]);
         }
         User current = userRepository.findByUsername("lliza");
-        current.setEnergy((int) (current.getEnergy() + 0.9 * steps));
+        current.setEnergy((current.getEnergy() + calculateAddition(steps, cardio)));
+        System.out.println(current);
         userRepository.save(current);
+    }
+
+    private int calculateAddition(int steps, int cardio) {
+        return (steps / 3000 + cardio / 15);
     }
 }

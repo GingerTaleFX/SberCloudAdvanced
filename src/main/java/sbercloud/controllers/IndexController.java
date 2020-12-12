@@ -22,28 +22,30 @@ public class IndexController {
     @GetMapping
     public String index(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (!auth.getPrincipal().equals("anonymousUser"))
-            try {
-                User currentUser = (User) auth.getPrincipal();
-                currentUser = userRepository.findByUsername(currentUser.getUsername());
-                model.addAttribute("user", currentUser);
-            } catch (ClassCastException ex) {
-                log.error("Cast error: " + ex.getMessage());
-            }
+        if (auth.getPrincipal().equals("anonymousUser"))
+            return "redirect:/login";
+        try {
+            User currentUser = (User) auth.getPrincipal();
+            currentUser = userRepository.findByUsername(currentUser.getUsername());
+            model.addAttribute("user", currentUser);
+        } catch (ClassCastException ex) {
+            log.error("Cast error: " + ex.getMessage());
+        }
         return "index";
     }
 
     @GetMapping("/colored")
     public String colored(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (!auth.getPrincipal().equals("anonymousUser"))
-            try {
-                User currentUser = (User) auth.getPrincipal();
-                currentUser = userRepository.findByUsername(currentUser.getUsername());
-                model.addAttribute("user", currentUser);
-            } catch (ClassCastException ex) {
-                log.error("Cast error: " + ex.getMessage());
-            }
+        if (auth.getPrincipal().equals("anonymousUser"))
+            return "redirect:/login";
+        try {
+            User currentUser = (User) auth.getPrincipal();
+            currentUser = userRepository.findByUsername(currentUser.getUsername());
+            model.addAttribute("user", currentUser);
+        } catch (ClassCastException ex) {
+            log.error("Cast error: " + ex.getMessage());
+        }
         return "colored";
     }
 }

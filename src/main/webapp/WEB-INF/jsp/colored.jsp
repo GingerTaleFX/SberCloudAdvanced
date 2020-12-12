@@ -11,9 +11,6 @@
 <body>
 <div class="wrapper">
     <div class="sky">
-        <div class="btn_start_block" >
-            <button class="btn_start" id="popup-trigger">START</button>
-        </div>
 
         <div class="building_block" id="building">
             <div class="colored-big-pixel-art--house" id="building"></div>
@@ -40,7 +37,6 @@
                 <li><a href="#palette" id="palette_trigger"> Palette</a></li>
             </ul>
         </div>
-        <canvas></canvas>
         <!-- /MENU BLOCK -->
         <!-- USER CARD BLOCK -->
         <div id="user-window">
@@ -57,7 +53,7 @@
                     </div>
                     <div class="energy">
                         <em>Energy</em>
-                        <div><span class="html" style="width:${user.getEnergy()}"></span></div>
+                        <div><span class="html" style="width:${user.getEnergy() * 0.2}px"></span></div>
                     </div>
                     <audio controls  loop autoplay>
                         <source src="<c:url value="static/music/Alexis Harte - No Wrong Way Home_(Audio-VK4.ru).mp3"/>" type="audio/ogg">
@@ -129,7 +125,7 @@
             <li><a href="#" class="clear warn">Clear</a></li>
             <li><a href="#" class="save">Save</a></li>
             <!-- <li><a href="#" class="paint" id="paint_trigger">Paint</a></li> -->
-            <li><a href="index.html" class="bg">Black</a></li>
+            <li><a href="/" class="bg">Black</a></li>
         </ul>
     </div>
 </div>

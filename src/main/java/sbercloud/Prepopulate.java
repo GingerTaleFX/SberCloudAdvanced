@@ -20,6 +20,5 @@ public class Prepopulate implements ApplicationRunner {
         User lliza = new User("lliza", passwordEncoder.encode("123"));
         lliza.setLevel(9.0);
         userRepository.save(lliza);
-        System.out.println(userRepository.findByUsername("lliza"));
     }
 }
