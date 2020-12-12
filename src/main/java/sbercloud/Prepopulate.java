@@ -18,7 +18,7 @@ public class Prepopulate implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         User lliza = new User("lliza", passwordEncoder.encode("123"));
-        lliza.setLevel(99.0);
+        lliza.setLevel(9.0);
         userRepository.save(lliza);
         System.out.println(userRepository.findByUsername("lliza"));
     }

@@ -10,7 +10,7 @@ import sbercloud.config.KafkaProducer;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/kafka")
-public class KafkaProducerTestController {
+public class KafkaProducerController {
 
     private final KafkaProducer kafkaProducer;
 
