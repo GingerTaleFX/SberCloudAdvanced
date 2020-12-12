@@ -1,5 +1,7 @@
 @import "colores.scss";
 
+$pixel-size: 8px;
+$big-pixel-size: 20px;
 $forest-pixel: 12px;
 
 $pixel-art: (
@@ -30,7 +32,40 @@ $pixel-art: (
         (tr tr tr tr tr tr g2 g2 g2 g2 tr tr tr tr tr tr tr)
         (tr tr tr tr g2 g2 g2 g2 g2 g2 g2 g2 g2 tr tr tr tr)
         (tr tr tr tr g2 tr g2 g2 tr g2 g2 tr g2 tr tr tr tr)
-      )
+      ),
+      sun: (
+        (tr tr tr tr tr y y y y y tr tr tr tr tr)
+        (tr tr tr y y y y y y y y y tr tr tr)
+        (tr tr y y y y y y y y y y y tr tr)
+        (tr y y y y y y y y y y y y y tr)
+        (tr y y y y y y y y y y y y y tr)
+        (y y tr tr tr y y y y y tr tr tr y y)
+        (y y y tr y y y y y y y tr y y y)
+        (y y y tr y y y y y y y tr y y y)
+        (y y y y y y y y y y y y y y y)
+        (y y y y tr y y y y y tr y y y y)
+        (tr y y y y tr y y y tr y y y y tr)
+        (tr y y y y y tr tr tr y y y y y tr)
+        (tr tr y y y y y y y y y y y tr tr)
+        (tr tr tr y y y y y y y y y tr tr tr)
+        (tr tr tr tr tr y y y y y tr tr tr tr tr)
+      ),
+      house: (
+        (tr tr tr tr tr tr tr tr tr tr tr tr tr tr tr tr tr tr)
+        (tr tr tr tr tr p p tr tr tr tr tr tr tr tr tr tr tr)
+        (tr tr tr tr tr p p tr tr tr tr tr tr tr tr tr tr tr)
+        (tr tr tr tr dg dg dg dg dg dg dg dg dg dg tr tr tr tr)
+        (tr tr tr dg dg dg dg dg dg dg dg dg dg dg dg tr tr tr)
+        (tr tr dg dg dg dg dg dg dg dg dg dg dg dg dg dg tr tr)
+        (tr dg dg dg dg dg dg dg dg dg dg dg dg dg dg dg dg tr)
+        (tr tr p p p p p p p tr tr tr dg tr dg tr tr tr)
+        (tr tr dg g2 dg dg g2 g2 dg tr tr tr dg tr dg tr tr tr)
+        (tr tr p g2 p p g2 g2 lg tr tr tr dg tr dg tr tr tr)
+        (tr tr dg dg dg dg dg dg dg dg dg dg dg dg dg dg tr tr)
+        (tr tr p p p p p p p tr dg tr dg tr dg tr tr tr)
+        (tr tr dg dg dg dg dg dg dg dg dg dg dg dg dg dg dg tr)
+        (tr tr p p p p p p p p p p p p p p p p)
+      ),
 );
 
 $colores: (
@@ -38,6 +73,8 @@ $colores: (
     'dg': $color_dargreen,
     'lg': $color_lightgreen,
     'g2': $color_brown,
+    'y': $color_yellow,
+    'p': $color_lightpink,
 );
 
 @function pixelize($matrix, $size){
@@ -78,6 +115,34 @@ $colores: (
     box-shadow: pixelize($matrix,$size);
   }
   }
+
+  .colored-pixel-art{
+    list-style: none;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    
+     @each $key, $value in $pixel-art{
+      &--#{$key}{
+        @include style-item($value, $pixel-size);
+      }
+    }
+    }
+    .colored-big-pixel-art{
+      list-style: none;
+      margin: auto;
+      padding: 0;
+      text-align: center;
+      width: 100%;
+      
+       @each $key, $value in $pixel-art{
+        &--#{$key}{
+          @include style-item($value, $big-pixel-size);
+        }
+      }
+      }
+    
   
   .colored-forest-pixel-art{
     list-style: none;

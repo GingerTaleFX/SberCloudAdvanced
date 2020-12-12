@@ -1,56 +1,15 @@
 @import "colores.scss";
+@import "pixelart.scss";
+@import "colored_pixelart.scss";
+@import "keyframes.scss";
+@import "menu.scss";
+@import "register.scss";
+@import "painting.scss";
 
-// $color_darkgrey: #40403E;
-// $color_lightblue:#8192B3;
-// $color_dirtywhite: #E0E0E0;
-// $color_sand: #D3BD9F;
-// $color_yellow: #E0E0A9;
-// $color_lightpink: #D6C2DC;
-// $color_lightgreen: #CADAB0;
-// $color_asphalt: #ACAFB1;
 $size-half: 50%;
 
 * {
     margin: 0 auto;
-}
-
-@keyframes wave {
-	0% {
-		transform: scale(0);
-		opacity:1;
-		transform-origin: center;
-	}
-	100% {
-		transform: scale(1.5);
-		opacity:0;
-		transform-origin: center;
-	}
-}
-
-@keyframes rising-sun {
-    0%   { 
-        top: 80%; 
-        box-shadow: 0 0 20px 100px $color_sand;
-    }
-    50% {
-        top: 10%;
-        box-shadow: 0 0 150px 20px $color_yellow;
-    }
-    75% {
-        top: 10%;
-        box-shadow: 0 0 150px 20px $color_dirtywhite;
-        background-color: $color_dirtywhite;
-    }
-    85% {
-        top: 10%;
-        box-shadow: 0 0 150px 20px $color_dirtywhite;
-        background-color: $color_dirtywhite;
-    }
-    100% {
-        top: 80%;
-        box-shadow: 0 0 150px 20px $color_sand;
-        background-color: $color_dirtywhite;
-    }
 }
 
 @keyframes  color_sky {
@@ -101,10 +60,11 @@ body {
     background-color: $color_lightgreen;
 }
 
-.building_block, .dog_block, .tree_block {
+.building_block, .dog_block {
     z-index: 3;
     display: none;
-    top: 40%;
+    left: 40px;
+    top: 30%;
     position: fixed;
     max-width: 80%;
     transform: translateY(-50%);
@@ -118,11 +78,41 @@ body {
     }
 }
 
+// .tree_block {
+//     position: absolute;
+//     z-index: 2;
+//     right: 5%;
+// }
+
 .tree_block {
+    display: none;
     position: absolute;
-    z-index: 2;
-    right: 5%;
+    z-index: 3;
+    top: 20%;
 }
+
+.forest {
+    display: block;
+    width: 100%;
+}
+
+body > div.wrapper > div.sky > div:nth-child(2) {
+    right: 20%;
+}
+
+body > div.wrapper > div.sky > div:nth-child(3) {
+    right: 35%;
+}
+
+body > div.wrapper > div.sky > div:nth-child(4) {
+    right: 50%;
+}
+
+audio {
+    max-width: 100%;
+    margin-top: 20px;
+}
+
 
 .btn_start_block{
     margin: 0 auto;
@@ -314,19 +304,17 @@ body {
 
 .moon {
     display: none;
-    width: 100px;
-    height: 100px;
+    // width: 100px;
+    // height: 100px;
     position: absolute;
-    background: $color_yellow;
+    // background: $color_yellow;
     border-radius: 50px;
     box-shadow: 0 0 20px $color_lightgreen;
     left: 50%;
     top: 80%;
     margin: 0 -50px;
     z-index: 1;
-    -webkit-animation: rising-sun 15s ease infinite;
-    -moz-animation:    rising-sun 15s ease infinite;
-    -ms-animation:     rising-sun 15s ease infinite;
+    animation: rising-sun 15s ease infinite;
 }
 
 @media screen and (max-width: 1400px)
@@ -334,10 +322,10 @@ body {
     .building_block img {
         max-width: 50%;
     }
-    .tree_block img{
-        max-width: 15%;
-        top: 17%;
-    }
+    // .tree_block img{
+    //     max-width: 15%;
+    //     top: 17%;
+    // }
     #user-window {
         min-height: 40%;
     }
