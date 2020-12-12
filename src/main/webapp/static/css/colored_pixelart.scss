@@ -1,0 +1,159 @@
+@import "colores.scss";
+
+$pixel-size: 8px;
+$big-pixel-size: 20px;
+$forest-pixel: 12px;
+
+$pixel-art: (
+    forest: (
+        (tr tr tr tr tr tr tr tr tr tr tr tr tr tr tr tr tr)
+        (tr tr tr tr tr tr tr tr dg tr tr tr tr tr tr tr tr)
+        (tr tr tr tr tr tr tr dg dg dg tr tr tr tr tr tr tr)
+        (tr tr tr tr tr tr dg dg dg tr dg tr tr tr tr tr tr)
+        (tr tr tr tr dg dg dg dg dg dg dg dg dg tr tr tr tr)
+        (tr tr tr dg dg dg dg dg dg dg dg tr dg dg tr tr tr)
+        (tr tr dg dg dg dg dg dg dg dg dg dg dg dg dg tr tr)
+        (tr dg dg dg dg dg dg dg dg dg dg dg dg dg dg dg tr)
+        (tr dg dg dg dg dg dg dg dg dg dg dg dg dg dg dg tr)
+        (dg tr dg dg dg dg dg dg dg dg dg dg dg dg dg dg dg)
+        (tr dg dg dg dg dg dg dg dg dg dg dg dg dg dg dg tr)
+        (tr tr dg dg dg dg dg dg dg dg dg dg dg dg dg tr dg)
+        (tr tr dg g2 dg dg dg dg dg dg dg g2 dg dg tr dg tr)
+        (tr tr tr dg g2 dg dg dg dg dg g2 dg dg dg dg dg tr)
+        (tr tr tr dg g2 g2 dg dg dg g2 g2 dg dg tr dg tr tr)
+        (tr tr tr tr dg g2 dg dg dg g2 dg dg g2 dg tr tr tr)
+        (tr tr tr tr tr dg g2 dg g2 dg dg g2 dg tr tr tr tr)
+        (tr tr tr tr tr tr g2 g2 g2 g2 g2 tr tr tr tr tr tr)
+        (tr tr tr tr tr tr tr g2 g2 g2 g2 tr tr tr tr tr tr)
+        (tr tr tr tr tr tr tr tr g2 g2 tr tr tr tr tr tr tr)
+        (tr tr tr tr tr tr tr g2 g2 g2 tr tr tr tr tr tr tr)
+        (tr tr tr tr tr tr tr tr g2 g2 g2 tr tr tr tr tr tr)
+        (tr tr tr tr tr tr tr tr g2 g2 tr tr tr tr tr tr tr)
+        (tr tr tr tr tr tr g2 g2 g2 g2 tr tr tr tr tr tr tr)
+        (tr tr tr tr g2 g2 g2 g2 g2 g2 g2 g2 g2 tr tr tr tr)
+        (tr tr tr tr g2 tr g2 g2 tr g2 g2 tr g2 tr tr tr tr)
+      ),
+      sun: (
+        (tr tr tr tr tr y y y y y tr tr tr tr tr)
+        (tr tr tr y y y y y y y y y tr tr tr)
+        (tr tr y y y y y y y y y y y tr tr)
+        (tr y y y y y y y y y y y y y tr)
+        (tr y y y y y y y y y y y y y tr)
+        (y y tr tr tr y y y y y tr tr tr y y)
+        (y y y tr y y y y y y y tr y y y)
+        (y y y tr y y y y y y y tr y y y)
+        (y y y y y y y y y y y y y y y)
+        (y y y y tr y y y y y tr y y y y)
+        (tr y y y y tr y y y tr y y y y tr)
+        (tr y y y y y tr tr tr y y y y y tr)
+        (tr tr y y y y y y y y y y y tr tr)
+        (tr tr tr y y y y y y y y y tr tr tr)
+        (tr tr tr tr tr y y y y y tr tr tr tr tr)
+      ),
+      house: (
+        (tr tr tr tr tr tr tr tr tr tr tr tr tr tr tr tr tr tr)
+        (tr tr tr tr tr p p tr tr tr tr tr tr tr tr tr tr tr)
+        (tr tr tr tr tr p p tr tr tr tr tr tr tr tr tr tr tr)
+        (tr tr tr tr dg dg dg dg dg dg dg dg dg dg tr tr tr tr)
+        (tr tr tr dg dg dg dg dg dg dg dg dg dg dg dg tr tr tr)
+        (tr tr dg dg dg dg dg dg dg dg dg dg dg dg dg dg tr tr)
+        (tr dg dg dg dg dg dg dg dg dg dg dg dg dg dg dg dg tr)
+        (tr tr p p p p p p p tr tr tr dg tr dg tr tr tr)
+        (tr tr dg g2 dg dg g2 g2 dg tr tr tr dg tr dg tr tr tr)
+        (tr tr p g2 p p g2 g2 lg tr tr tr dg tr dg tr tr tr)
+        (tr tr dg dg dg dg dg dg dg dg dg dg dg dg dg dg tr tr)
+        (tr tr p p p p p p p tr dg tr dg tr dg tr tr tr)
+        (tr tr dg dg dg dg dg dg dg dg dg dg dg dg dg dg dg tr)
+        (tr tr p p p p p p p p p p p p p p p p)
+      ),
+);
+
+$colores: (
+    'tr': transparent,
+    'dg': $color_dargreen,
+    'lg': $color_lightgreen,
+    'g2': $color_brown,
+    'y': $color_yellow,
+    'p': $color_lightpink,
+);
+
+@function pixelize($matrix, $size){
+    $l: length($matrix);
+    $sh: '';
+    $i: $l;
+  
+    @for $i from 1 through $l{
+      $row: nth($matrix,$i);
+  
+      @for $j from 1 through length($row){
+          $item: nth($row,$j);
+  
+          @if map-has-key($colores, $item) {
+            $sh:  $sh + ($j*$size) + ' ' + ($i*$size) + ' ' + map-get($colores, $item);
+          } @else {
+            @warn 'there is no color specified in "$colores for: "#{$item}"';
+          }
+  
+        @if not ($j == length($row) and $i == $l) {
+          $sh: $sh + ',';
+        }
+      }
+    }
+  
+    @return unquote($sh);
+  }
+  
+  @mixin style-item($matrix, $size){
+  
+  &:after{
+    content: '';
+    position: absolute;
+    top: (-$size);
+    left: (-$size);
+    width: $size;
+    height: $size;
+    box-shadow: pixelize($matrix,$size);
+  }
+  }
+
+  .colored-pixel-art{
+    list-style: none;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    
+     @each $key, $value in $pixel-art{
+      &--#{$key}{
+        @include style-item($value, $pixel-size);
+      }
+    }
+    }
+    .colored-big-pixel-art{
+      list-style: none;
+      margin: auto;
+      padding: 0;
+      text-align: center;
+      width: 100%;
+      
+       @each $key, $value in $pixel-art{
+        &--#{$key}{
+          @include style-item($value, $big-pixel-size);
+        }
+      }
+      }
+    
+  
+  .colored-forest-pixel-art{
+    list-style: none;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    
+     @each $key, $value in $pixel-art{
+      &--#{$key}{
+        @include style-item($value, $forest-pixel);
+      }
+    }
+    }

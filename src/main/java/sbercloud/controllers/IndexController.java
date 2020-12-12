@@ -32,4 +32,18 @@ public class IndexController {
             }
         return "index";
     }
+
+    @GetMapping("/colored")
+    public String colored(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (!auth.getPrincipal().equals("anonymousUser"))
+            try {
+                User currentUser = (User) auth.getPrincipal();
+                currentUser = userRepository.findByUsername(currentUser.getUsername());
+                model.addAttribute("user", currentUser);
+            } catch (ClassCastException ex) {
+                log.error("Cast error: " + ex.getMessage());
+            }
+        return "colored";
+    }
 }

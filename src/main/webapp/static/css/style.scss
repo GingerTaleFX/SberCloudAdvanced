@@ -1,44 +1,16 @@
-$color_darkgrey: #40403E;
-$color_lightgrey: #969BA3;
-$color_dirtywhite: #E0E0E0;
-$color_dirtygreygreen: #6D7578;
-$color_asphalt: #ACAFB1;
+
+@import "colores.scss";
+@import "pixelart.scss";
+@import "colored_pixelart.scss";
+@import "keyframes.scss";
+@import "menu.scss";
+@import "register.scss";
+@import "painting.scss";
+
 $size-half: 50%;
 
 * {
     margin: 0 auto;
-}
-
-@keyframes wave {
-	0% {
-		transform: scale(0);
-		opacity:1;
-		transform-origin: center;
-	}
-	100% {
-		transform: scale(1.5);
-		opacity:0;
-		transform-origin: center;
-	}
-}
-
-@keyframes rising-sun {
-    0%   { 
-        top: 80%; 
-        box-shadow: 0 0 20px 100px $color_dirtywhite;
-    }
-    50% {
-        top: 10%;
-        box-shadow: 0 0 150px 20px $color_dirtygreygreen;
-    }
-    75% {
-        top: 10%;
-        box-shadow: 0 0 150px 20px $color_dirtygreygreen;
-    }
-    100% {
-        top: 80%;
-        box-shadow: 0 0 150px 20px $color_dirtygreygreen;
-    }
 }
 
 body {
@@ -72,10 +44,39 @@ body {
 .building_block {
     z-index: 3;
     display: none;
-    top: 40%;
+    left: 40px;
+    top: 30%;
     position: fixed;
-    max-width: 100%;
+    max-width: 80%;
     transform: translateY(-50%);
+}
+
+.tree_block {
+    display: none;
+    position: absolute;
+    z-index: 3;
+    top: 20%;
+}
+.forest {
+    display: block;
+    width: 100%;
+}
+
+body > div.wrapper > div.sky > div:nth-child(2) {
+    right: 20%;
+}
+
+body > div.wrapper > div.sky > div:nth-child(3) {
+    right: 35%;
+}
+
+body > div.wrapper > div.sky > div:nth-child(4) {
+    right: 50%;
+}
+
+audio {
+    max-width: 100%;
+    margin-top: 20px;
 }
 
 .btn_start_block{
@@ -115,79 +116,34 @@ body {
     border-radius: 2%;
     display: none;
     margin-right: 2vw;
-    left: 50;
-    right: 0;
-    top: 30%;
+    right: 40px;
+    top: 50%;
     transform: translateY(-50%);
-    width: 15vw;
-    height: 50vh;
-    background: #ddd;
+    padding: 10px;
+    max-width: 20%;
+    max-height: 50%;
+    background: $color_dirtywhite;
     border: 1px solid #aaa;
-    box-shadow: 0 3px 15px 5px rgba(50, 50, 50, 0.15);
+    box-shadow: 5px 5px $color_boxshadow;
+
   }
+
+#user_close {
+    position: absolute;
+    top: -35px;
+    right: -30px;
+    font-size: 50px;
+    line-height: 1;
+    cursor: pointer;
+}
+
 
 .card-container {
     display: block;
     width: 100%;
     text-align: center;
 }
-.btn_connect {
-    border-radius: 5%;
-    background-color: $color_dirtywhite;
-    border: 1px solid transparent;
-    display: block;
-    cursor: pointer;
-    margin-top: 5%;
-    margin-left: 5%;
-    box-shadow:2px 1px 7px rgba(0,0,0,0.2);
-    .first {
-        margin-top: 20%;
-    }
-    a {
-        text-decoration: none;
-        color: $color_darkgrey;
-    }
-}
-.my-profile {
-    display: block;
-    width: 100%;
-    height: 10vh;
-    text-align: left;
-    transition: .1s ease-in-out;
-    cursor: pointer;
-    margin: 0 auto;
-    margin-top: 10%;
-    > .thumb {
-        display: block;
-        margin: 0 auto;
-        width:90px; 
-        height:90px; 
-        padding:4px; 
-        background:transparent; 
-        border-radius:50%; 
-        box-shadow:0 2px 8px rgba(0,0,0,0.3); 
-        z-index:1;
-    }
-}
 
-.thumb:before {
-    content:""; 
-    position:absolute; 
-    display:block; 
-    width:90px; 
-    height:90px; 
-    background:rgba(0, 0, 0, .6); 
-    border-radius:50%; 
-    z-index:1; 
-    backface-visibility:hidden; 
-    opacity:0; 
-    animation:wave 3s infinite ease-out;
-}
-
-.my-profile:hover {
-    width:270px; 
-    transition:width .1s ease-in-out;
-}
 .info {
     color: $color_darkgrey;
     > .level {
@@ -225,7 +181,7 @@ body {
         }
         span.html {
             width:90%; 
-            background:#F44336; 
+            background:$color_red; 
         }
     }
 }
@@ -241,9 +197,9 @@ body {
     transform: translateY(-50%);
     width: 50%;
     height: 80%;
-    background: #ddd;
-    border: 1px solid #aaa;
-    box-shadow: 0  3px 15px 5px rgba(50,50,50,0.15);
+    background: $color_dirtywhite;
+    border: 1px solid $color_dirtygreygreen;
+    box-shadow: 0  3px 15px 5px $color_darkgrey;
 }
     
 .x-close {
@@ -252,13 +208,15 @@ body {
     float: right;
     margin-right: 12px;
     cursor: pointer;
+    padding-left: 15px;
 }
 
 .history_text, .rules_text {
     display: block;
     font-size: 22pt;
-    margin: 10%;
+    margin: 20px;
 }
+
 
 #user-window > embed {
     margin-top: 20px;
@@ -271,14 +229,24 @@ body {
     width: 100px;
     height: 100px;
     position: absolute;
-    background: $color_darkgrey;
+    background: $color_dirtywhite;
+    font-size: $pixel-size;
     border-radius: 50px;
-    box-shadow: 0 0 20px $color_dirtygreygreen;
     left: 50%;
-    top: 80%;
+    top: 10%;
     margin: 0 -50px;
     z-index: 1;
-    -webkit-animation: rising-sun 15s ease infinite;
-    -moz-animation:    rising-sun 15s ease infinite;
-    -ms-animation:     rising-sun 15s ease infinite;
+    animation: rising-sun 15s ease infinite;
+}
+
+@media screen and (max-width: 1400px){
+    #building > img {
+        max-width: 50%;
+    }
+    #user-window {
+        min-height: 40%;
+    }
+    #user-window > div.card-container > div.info p {
+        font-size: 10pt;
+    }
 }

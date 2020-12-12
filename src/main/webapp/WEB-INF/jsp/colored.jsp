@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./css/colored.css">
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <link rel="stylesheet" type="text/css" href="<c:url value="static/css/style.css"/>">
+    <link rel="shortcut icon" href="favicon.ico?" type="image/x-icon" />
     <title>MOLD</title>
 </head>
 <body>
@@ -42,23 +44,27 @@
         <!-- /MENU BLOCK -->
         <!-- USER CARD BLOCK -->
         <div id="user-window">
-            <span id="user_close" >&times;</span>
-            <div class="card-container">
-                <div class="info">
-                    <p class="level">1st Level</p>
-                    <p class="name">Little Name</p>
-                    <p class="role">Student</p>
-                    <p class="location">Aalto University, Finland</p>
+             <c:if test="${user != null}">
+                <span id="user_close" >&times;</span>
+                <div class="card-container">
+                    <div class="info">
+                        <p class="level">${user.getLevel()} Level</p>
+                        <p class="name">${user.getUsername()}</p>
+                        <c:if test="${user.getUniversity() != null}">
+                            <p class="role">Student</p>
+                            <p class="location">Aalto University, Finland</p>
+                        </c:if>
+                    </div>
+                    <div class="energy">
+                        <em>Energy</em>
+                        <div><span class="html" style="width:${user.getEnergy()}"></span></div>
+                    </div>
+                    <audio controls  loop autoplay>
+                        <source src="<c:url value="static/music/Alexis Harte - No Wrong Way Home_(Audio-VK4.ru).mp3"/>" type="audio/ogg">
+                        Your browser dose not Support the audio Tag
+                    </audio>
                 </div>
-                <div class="energy">
-                    <em>Energy</em>
-                    <div><span class="html"></span></div>
-                </div>
-                <audio controls  loop autoplay>
-                    <source src="./music/Alexis Harte - No Wrong Way Home_(Audio-VK4.ru).mp3" type="audio/ogg">
-                    Your browser dose not Support the audio Tag
-                </audio>
-            </div>
+            </c:if>
         </div>
         <!-- /USER CARD BLOCK -->
 
@@ -128,8 +134,6 @@
     </div>
 </div>
 <!-- /POP UP'S  -->
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<script src="main.js"></script>
-<script src="painting.js"></script>
+<%@ include file = "footer.jsp" %>
 </body>
 </html>
