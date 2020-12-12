@@ -1,0 +1,33 @@
+@import "colores.scss";
+
+@keyframes wave {
+	0% {
+		transform: scale(0);
+		opacity:1;
+		transform-origin: center;
+	}
+	100% {
+		transform: scale(1);
+		opacity:0;
+		transform-origin: center;
+	}
+}
+
+@keyframes rising-sun {
+    0%   { 
+        top: 80%; 
+        box-shadow: 0 0 20px 100px $color_dirtywhite;
+    }
+    50% {
+        top: 10%;
+        box-shadow: 0 0 150px 80px $color_dirtywhite;
+    }
+    75% {
+        top: 10%;
+        box-shadow: 0 0 150px 80px $color_dirtywhite;
+    }
+    100% {
+        top: 80%;
+        box-shadow: 0 0 150px 80px $color_dirtywhite;
+    }
+}

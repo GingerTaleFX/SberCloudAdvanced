@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAiFE,AAAA,yBAAyB,CAAA;EACvB,UAAU,EAAE,IAAI;EAChB,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,MAAM;EAClB,KAAK,EAAE,IAAI;EAEX,mBAAmB,EAAE,IAAI;EACzB,UAAU,EAAE,aAAa;CAOxB;;AAJE,AAtBL,iCAsBa,AAtBZ,MAAM,CAAA;EACL,OAAO,EAAE,EAAE;EACX,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAvEQ,KAAI;EAwEf,IAAI,EAxEO,KAAI;EAyEf,KAAK,EAzEM,IAAI;EA0Ef,MAAM,EA1EK,IAAI;EA2Ef,UAAU,EAZF,utSAAY;CAarB",
+    "sources": [
+        "colored_pixelart.scss",
+        "colores.scss"
+    ],
+    "names": [],
+    "file": "colored_pixelart.css"
+}
