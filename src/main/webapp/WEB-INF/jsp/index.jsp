@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
-<!--    <div th:insert="icon :: ico"></div>-->
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <link rel="stylesheet" type="text/css" href="<c:url value="static/css/style.css"/>">
+    <link rel="shortcut icon" href="favicon.ico?" type="image/x-icon" />
     <title>MOLD</title>
 </head>
 <body>
@@ -14,26 +15,29 @@
             <button class="btn_start" id="popup-trigger">START</button>
         </div>
         <div class="building_block" id="building">
-            <img src="./pics/building.png" alt="">
+            <img src="static/pics/building.png" alt="">
         </div>
         <div id="user-window">
-            <div class="card-container">
-                <div class="my-profile">
-                    <span class="thumb"><img src="#" alt="" /></span>
+            <c:if test="${user != null}">
+                <div class="card-container">
+                    <div class="my-profile">
+                        <span class="thumb"><img src="#" alt="" /></span>
+                    </div>
+                    <div class="info">
+                        <p class="level">${user.getLevel()} Level</p>
+                        <p class="name">${user.getUsername()}</p>
+                        <c:if test="${user.getUniversity() != null}">
+                            <p class="role">Student</p>
+                            <p class="location">Aalto University, Finland</p>
+                        </c:if>
+                    </div>
+                    <div class="energy">
+                        <em>Energy</em>
+                        <div><span class="html" style="width:${user.getEnergy()}"></span></div>
+                    </div>
                 </div>
-                <div class="info">
-                    <p class="level">1st Level</p>
-                    <p class="name">Little Name</p>
-                    <p class="role">Student</p>
-                    <p class="location">Aalto University, Finland</p>
-                </div>
-                <div class="energy">
-                    <em>Energy</em>
-                    <div><span class="html"></span></div>
-                </div>
-            </div>
-            <button class="btn_connect first"><a href="#">Create account</a></button>
-            <button class="btn_connect"><a href="#">Add University account</a></button>
+            </c:if>
+            <button class="btn_connect"><a href="#">Add studying account</a></button>
             <button class="btn_connect"><a href="#">Add Google Fit</a></button>
             <button class="btn_connect" id="history_trigger"><a href="#">History</a></button>
             <button class="btn_connect" id="rules_trigger"><a href="#">Rules</a></button>
@@ -69,7 +73,6 @@
                     </p>
                 </div>
             </div>
-            <div th:text="${user.name}">mock text</div>
         </div>
     </div>
     <div class="moon" id="moon_visible">
@@ -77,6 +80,6 @@
     </div>
     <div class="land"></div>
 </div>
-<div th:insert="footer :: js"></div>
+<%@ include file = "footer.jsp" %>
 </body>
 </html>

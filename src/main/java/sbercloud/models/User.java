@@ -18,14 +18,21 @@ import java.util.Collection;
 @Entity
 @Data
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
-@RequiredArgsConstructor
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private final String username;
-    private final String password;
+    private String password;
     private Double level;
+    private String university;
+    private int energy;
+
+    public User(String name, String password) {
+        this.username = name;
+        this.password = password;
+        this.energy = 0;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
