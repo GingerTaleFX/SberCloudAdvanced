@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: sbercloud.SberCloudApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.53 s - in sbercloud.SberCloudApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.496 s - in sbercloud.SberCloudApplicationTests
