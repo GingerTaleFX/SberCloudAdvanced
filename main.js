@@ -15,16 +15,23 @@ $(document).ready(function(){
     function fadeout(el) {
       $(el).fadeOut(fadeOutTime);
     }
-   
-    $('#popup-trigger').on('click touchend', function(){
-      // fadein(popupWindow);
-      fadein(BuildingBlock);
-      fadein(MoonIcon);
-      fadein("#toggle");
-      fadein('.tree_block');
-      fadeout('.btn_start_block');
-      $('.btn_start_block').remove();
-    })
+    fadein(BuildingBlock);
+    fadein(MoonIcon);
+    fadein("#toggle");
+    fadein('.tree_block');
+    fadein('#simba-block');
+    fadein('#dog-block');
+    fadein('#boy-block');
+    // fadeout('.btn_start_block');
+    // $('#popup-trigger').on('click touchend', function(){
+    //   // fadein(popupWindow);
+    //   fadein(BuildingBlock);
+    //   fadein(MoonIcon);
+    //   fadein("#toggle");
+    //   fadein('.tree_block');
+    //   fadeout('.btn_start_block');
+    //   $('.btn_start_block').remove();
+    // })
 
     $('#history_trigger').on('click touched', function(){
         fadein(HistoryWindow);

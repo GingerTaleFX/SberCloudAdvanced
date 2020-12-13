@@ -5,6 +5,7 @@
 @import "menu.scss";
 @import "register.scss";
 @import "painting.scss";
+@import "creatures.scss";
 
 $size-half: 50%;
 
@@ -58,7 +59,7 @@ body {
     background-color: $color_lightgreen;
 }
 
-.building_block, .dog_block {
+.building_block {
     z-index: 3;
     display: none;
     left: 40px;
@@ -68,13 +69,13 @@ body {
     transform: translateY(-50%);
 }
 
-.dog_block{
-    top: 75%;
-    left: 25%;
-    img {
-        width: 50%;
-    }
-}
+// .dog_block{
+//     top: 75%;
+//     left: 25%;
+//     img {
+//         width: 50%;
+//     }
+// }
 
 // .tree_block {
 //     position: absolute;
