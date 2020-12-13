@@ -19,16 +19,14 @@ public class IndexController {
 
     private final UserRepository userRepository;
 
-    private final String STUB_USER_NAME = "lliza";
-
     @GetMapping
     public String index(Model model) {
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        if (auth.getPrincipal().equals("anonymousUser"))
-//            return "redirect:/login";
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth.getPrincipal().equals("anonymousUser"))
+            return "redirect:/login";
         try {
-//            User currentUser = (User) auth.getPrincipal();
-            User currentUser = userRepository.findByUsername(STUB_USER_NAME);
+            User currentUser = (User) auth.getPrincipal();
+            currentUser = userRepository.findByUsername(currentUser.getUsername());
             model.addAttribute("user", currentUser);
         } catch (ClassCastException ex) {
             log.error("Cast error: " + ex.getMessage());
@@ -38,12 +36,12 @@ public class IndexController {
 
     @GetMapping("/colored")
     public String colored(Model model) {
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        if (auth.getPrincipal().equals("anonymousUser"))
-//            return "redirect:/login";
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth.getPrincipal().equals("anonymousUser"))
+            return "redirect:/login";
         try {
-//            User currentUser = (User) auth.getPrincipal();
-            User currentUser = userRepository.findByUsername(STUB_USER_NAME);
+            User currentUser = (User) auth.getPrincipal();
+            currentUser = userRepository.findByUsername(currentUser.getUsername());
             model.addAttribute("user", currentUser);
         } catch (ClassCastException ex) {
             log.error("Cast error: " + ex.getMessage());
